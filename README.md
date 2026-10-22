@@ -5,7 +5,6 @@
 ---
 
 ## 
-* **Nome do Aluno:** [Vitoria Barroso]
 * **Nome da Aplicação:** Salgueiro
 * **Tecnologia / Framework:** React Native (Expo SDK 58) com React Navigation Stack
 
@@ -18,7 +17,7 @@ O **Salgueiro** é um aplicativo mobile conceitual focado na experiência de lei
 
 ##  Credenciais de Teste
 Para acessar a área principal do aplicativo (Home), utilize as credenciais fixas definidas no código:
-* **Usuário:** `aluno`
+* **Usuário:** `folk`
 * **Senha:** `123456`
 
 
