@@ -35,7 +35,7 @@ export default function AppNavigator() {
         <Stack.Screen 
           name="Home" 
           component={Home} 
-          options={{ title: 'Home' }} 
+          options={{ title: 'Salgueiro Home' }} 
         />
         <Stack.Screen 
           name="Sobre" 
@@ -46,12 +46,6 @@ export default function AppNavigator() {
           name="Contato" 
           component={Contato} 
           options={{ title: 'Contato' }} 
-        />
-        <Stack.Screen 
-          name="Sair" 
-          component={Login} 
-          options={{ headerShown: false }} 
-          
         />
       </Stack.Navigator>
     </NavigationContainer>

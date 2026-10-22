@@ -4,6 +4,7 @@ import { Text, TextInput, TouchableOpacity, View, Alert, StyleSheet } from 'reac
 export default function Login({ navigation }) {
   const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
+  const [mostrarSenha, setMostrarSenha] = useState(false);
 
   const handleLogin = () => {
     if (!usuario.trim()) {
@@ -11,7 +12,7 @@ export default function Login({ navigation }) {
       return;
     }
     if (!senha.trim()) {
-      Alert.alert('Salgueiro', 'Informe a senha. ex: folk');
+      Alert.alert('Salgueiro', 'Informe a senha. ex: 123456');
       return;
     }
 
@@ -40,14 +41,21 @@ export default function Login({ navigation }) {
           autoCapitalize="none"
         />
 
-        <TextInput
-          style={styles.input}
-          placeholder="Senha ex:123456"
-          placeholderTextColor="#A39B8B"
-          secureTextEntry={true}
-          value={senha}
-          onChangeText={setSenha}
-        />
+        <View style={styles.senhaContainer}>
+          <TextInput
+            style={styles.inputSenha}
+            placeholder="Senha ex: 123456"
+            placeholderTextColor="#A39B8B"
+            secureTextEntry={!mostrarSenha}
+            value={senha}
+            onChangeText={setSenha}
+          />
+          <TouchableOpacity 
+            style={styles.botaoOlho} 
+            onPress={() => setMostrarSenha(!mostrarSenha)}
+          >
+          </TouchableOpacity>
+        </View>
 
         <TouchableOpacity style={styles.botao} onPress={handleLogin}>
           <Text style={styles.textoBotao}>Entrar</Text>
@@ -64,13 +72,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F9F6F0',
     padding: 24,
-  },
-  subtituloFolklore: {
-    fontSize: 14,
-    fontStyle: 'italic',
-    color: '#8C7A6B',
-    marginBottom: 4,
-    letterSpacing: 1,
   },
   titulo: {
     fontSize: 38,
@@ -103,6 +104,29 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     fontSize: 16,
     color: '#332923',
+  },
+  senhaContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    height: 50,
+    backgroundColor: '#F9F6F0',
+    borderWidth: 1,
+    borderColor: '#D8D0C5',
+    borderRadius: 8,
+    marginBottom: 15,
+    paddingHorizontal: 15,
+  },
+  inputSenha: {
+    flex: 1,
+    fontSize: 16,
+    color: '#332923',
+  },
+  botaoOlho: {
+    padding: 5,
+  },
+  textoOlho: {
+    fontSize: 18,
   },
   botao: {
     width: '100%',

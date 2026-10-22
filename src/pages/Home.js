@@ -2,6 +2,13 @@ import React from 'react';
 import { Text, TouchableOpacity, View, ScrollView, Image, StyleSheet } from 'react-native';
 
 export default function Home({ navigation }) {
+  const handleLogout = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Login' }],
+    });
+  };
+
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.content}>
@@ -30,11 +37,8 @@ export default function Home({ navigation }) {
           </View>
         </View>
 
-    
         <View style={styles.headerSecao}>
-          <Text style={styles.secaoTitulo}>Proximas Leituras</Text>
-          <TouchableOpacity>
-          </TouchableOpacity>
+          <Text style={styles.secaoTitulo}>Próximas Leituras</Text>
         </View>
 
         <ScrollView 
@@ -51,9 +55,8 @@ export default function Home({ navigation }) {
               <Text style={styles.featuredTitulo} numberOfLines={2}>
                 Jogos Vorazes
               </Text>
-             <Text style={styles.featuredSubtitulo}>Distopia</Text>
+              <Text style={styles.featuredSubtitulo}>Distopia</Text>
               <Text style={styles.avaliacao}>★★★★☆ <Text style={styles.avaliacoesQtd}>(83)</Text></Text>
-      
             </View>
           </View>
 
@@ -68,7 +71,6 @@ export default function Home({ navigation }) {
               </Text>
               <Text style={styles.featuredSubtitulo}>Fantasia</Text>
               <Text style={styles.avaliacao}>★★★★★ <Text style={styles.avaliacoesQtd}>(124)</Text></Text>
-            
             </View>
           </View>
         </ScrollView>
@@ -88,13 +90,12 @@ export default function Home({ navigation }) {
             <Text style={styles.textoBotao}>Contato</Text>
           </TouchableOpacity>
 
-        <TouchableOpacity 
-            style={[styles.botao, styles.botaoContato]} 
-            onPress={() => navigation.navigate('Sair')}
+          <TouchableOpacity 
+            style={[styles.botao, styles.botaoSair]} 
+            onPress={handleLogout}
           >
             <Text style={styles.textoBotao}>Sair</Text>
           </TouchableOpacity>
-          
         </View>
 
       </View>
@@ -110,21 +111,6 @@ const styles = StyleSheet.create({
   content: {
     padding: 20,
   },
-  boasVindas: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#7A1C2C',
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  citacao: {
-    fontSize: 13,
-    fontStyle: 'italic',
-    color: '#6E5C4F',
-    textAlign: 'center',
-    marginTop: 6,
-    marginBottom: 20,
-  },
   secaoTitulo: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -137,11 +123,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
     marginBottom: 12,
-  },
-  verMais: {
-    fontSize: 14,
-    color: '#7A1C2C',
-    fontWeight: '600',
   },
   continueCard: {
     flexDirection: 'row',
@@ -247,11 +228,6 @@ const styles = StyleSheet.create({
   avaliacoesQtd: {
     color: '#8C7A6B',
   },
-  tempoLeitura: {
-    fontSize: 11,
-    color: '#6E5C4F',
-    marginTop: 6,
-  },
   botoesContainer: {
     marginTop: 25,
     marginBottom: 15,
@@ -267,6 +243,9 @@ const styles = StyleSheet.create({
   },
   botaoContato: {
     backgroundColor: '#4A5D4E',
+  },
+  botaoSair: {
+    backgroundColor: '#A93226',
   },
   textoBotao: {
     color: '#F9F6F0',
